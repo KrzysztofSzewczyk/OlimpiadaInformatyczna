@@ -11,8 +11,8 @@
 #include <sys/types.h>
 
 #ifdef SSE
-#include <immintrin.h>
-#include <emmintrin.h>
+    #include <immintrin.h>
+    #include <emmintrin.h>
 #endif
 
 #define min(a, b) a > b ? b : a
@@ -95,7 +95,7 @@ str_t * ice(void) {
     for (; i < n; i++) {
         char c;
         int l = 0, t = 0;
-        while(isspace(c=getchar()));
+        while (isspace(c=getchar()));
         nread(&l);
         for (; t < l; t++)
             strapp(out, c == 'W' ? 1 : 2);
@@ -135,11 +135,11 @@ int trymatch(str_t * a, str_t * b) {
 }
 
 inline void nwrite(unsigned int n) {
-	char tab[12];
+    char tab[12];
     int p = 0;
-    while(n != 0)
+    while (n != 0)
         tab[p++] = (n % 10) + 48, n /= 10;
-    while(p--) 
+    while (p--)
         putc_unlocked(tab[p], stdout);
     exit(0);
 }
