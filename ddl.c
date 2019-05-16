@@ -74,7 +74,7 @@ void strapp(str_t * self, char c) {
 str_t * strsub(str_t * buf, size_t from, ssize_t to) {
     size_t n = to - from;
     str_t * self = strnws(n);
-    mememcpy(self->data, buf->data + from, n);
+    memcpy(self->data, buf->data + from, n);
     return self;
 }
 
